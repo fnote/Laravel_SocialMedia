@@ -27,20 +27,27 @@
 
                     <p>{{$post->body}}</p>
                     <div class="info">
-                        posted by{{$post->user->first_name}}
+                        posted by {{$post->user->first_name}}
+                    </div>
+                    <div class="interaction">
+                            <a href="#">Like |</a>
+                            <a href="#">Dislike |</a>
+                            <a href="#">Edit |</a>
+                            <a href="{{route('post.delete',['post_id'=>$post->id])}}">Delete</a>
+
                     </div>
                 </article>
             @endforeach
 
-            <form action="{{route('post.create')}}" method="post">
-                <div class="form-group">
+           {{--<form action="{{route('post.create')}}" method="post">--}}
+                {{--<div class="form-group">--}}
 
-                    <textarea class="form-control" name="body" id="new-post" rows="5" placeholder="your posts here"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Create post</button>
-                <input type="hidden" name="_token" value="{{Session::token()}}">
+                    {{--<textarea class="form-control" name="body" id="new-post" rows="5" placeholder="your posts here"></textarea>--}}
+                {{--</div>--}}
+                {{--<button type="submit" class="btn btn-primary">Create post</button>--}}
+                {{--<input type="hidden" name="_token" value="{{Session::token()}}">--}}
 
-            </form>
+            {{--</form>--}}
 
         </div>
     </section>
