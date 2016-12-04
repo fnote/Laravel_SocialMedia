@@ -9,7 +9,9 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function getDashboard(){
-        $posts=Post::all();                   //fetch all posts
+
+
+        $posts=Post::orderBy('created_at','desc')->get();                   //fetch all posts
 
         return view('dashboard',['posts'=>$posts]);
     }
@@ -35,6 +37,10 @@ class PostController extends Controller
     public function getDeletePost($post_id)
     {
         $post=Post::where('id',$post_id)->first();
+
+        if(Auth::user()!=$post->user){
+            return redirect()->back();
+        }
       // $post->delete();
         //if (!is_null($post)) {
             $post->delete();
