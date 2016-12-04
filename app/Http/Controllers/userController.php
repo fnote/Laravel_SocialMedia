@@ -45,4 +45,10 @@ class userController extends Controller {
         return redirect()->back();
 
     }
+
+
+    public function getLogout(){
+        Auth::logout();
+        return redirect()->route('home'); 
+    }
 }

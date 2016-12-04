@@ -44,6 +44,12 @@ Route::group(['middleware'=>['web']], function () {
 
     ]);
 
+    Route::get('/logout',[
+        'uses'=>'userController@getLogout',
+        'as'=>'logout'
+
+    ]);
+
     Route::get('/delete-post/{post_id}',[
         'uses'=>'PostController@getDeletePost',
         'as'=>'post.delete'
