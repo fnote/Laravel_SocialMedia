@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
-
+use Auth;
 
 class PostController extends Controller
 {
@@ -50,6 +50,8 @@ class PostController extends Controller
 
 
     }
+
+
 
 
 
